@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neko一番屋密碼破解器</title>
+    <link rel="stylesheet" href="../static/font/font.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/loading.css">
+
+    <link rel="stylesheet" href="../static/css/login.css">
+
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "POST",
+                url: "/exe",
+                success: function (response) {
+                    var password = response.split("")
+                    $("body").html(`
+    <div class="title">今日白喵一番屋密碼:</div>
+    <div class="result">
+        <div class="password">${password[0]}</div>
+        <div class="password">${password[1]}</div>
+        <div class="password">${password[2]}</div>
+        <div class="password">${password[3]}</div>
+    </div>`);
+                }
+            });
+        })
+
+    </script>
+</head>
+
+<body>
+    <div class="loading-title">爬蟲運作中</div>
+    <div class="loading">
+        <div class="bar"></div> 
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</body>
+
+</html>
